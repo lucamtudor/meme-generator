@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <title>MemeMaker-Simple</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <style>
+        #image-container {
+            display: flex;
+        }
+    </style>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbower -->
+
+    <!-- build:js scripts/meme.js -->
+    <script src="scripts/meme.js"></script>
+    <!-- endbuild -->
+    <!-- endbuild -->
+</head>
+<body>
+<div>
+    <input type="file" id="photoSelect"/>
+</div>
+<div id="image-container">
+    <canvas id="canvas" width="715" height="644"></canvas>
+    <div>
+        <span>Top Line:</span><br/>
+        <input id="topLineText" type="text"><br/>
+        <span>Bottom Line:</span><br/>
+        <input id="bottomLineText" type="text"><br/>
+        <button id="saveButton">Save</button>
+    </div>
+</div>
+<script>
+
+    var memeCreator = new MemeCreator('#canvas', '#topLineText', '#bottomLineText', '#photoSelect');
+    $('#saveButton').click(function () {
+        memeCreator.saveImage()
+    });
+</script>
+
+</body>
+</html>
